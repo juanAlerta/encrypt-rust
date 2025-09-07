@@ -1,4 +1,5 @@
 use std::fs;
+use std::env;
 use std::path::{Path, PathBuf};
 use colored::*;
 
@@ -53,8 +54,13 @@ impl DirInfo {
 
 
 fn main() {
+
+    let args: Vec<String> = env::args().collect();
+    let path_request = &args[1];
+    println!("🚩 Encryping data from {path_request} 🚩");
+
     let mut info = DirInfo::new();
-    info.explore(Path::new("./"));
+    info.explore(Path::new(path_request));
 
     println!("Directorios encontrados: ");
     for d in &info.dirs {
@@ -63,6 +69,6 @@ fn main() {
     }
     println!("Ficheros encontrados: ");
     for f in &info.files {
-        println!("{}/", format!("{}", f.display()).yellow());
+       println!("{}/", format!("{}", f.display()).yellow());
     }
 }
