@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "encrypt-directory"
+name = "encrypt-rust"
 version = "0.1.0"
 dependencies = [
  "colored",

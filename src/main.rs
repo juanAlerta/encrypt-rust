@@ -54,10 +54,9 @@ impl DirInfo {
 
 
 fn main() {
-
     let args: Vec<String> = env::args().collect();
     let path_request = &args[1];
-    println!("🚩 Encryping data from {path_request} 🚩");
+    println!("🚩 Encryping data from {path_request} 🚩\n");
 
     let mut info = DirInfo::new();
     info.explore(Path::new(path_request));
