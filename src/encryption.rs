@@ -38,3 +38,5 @@ pub fn encrypt_chacha(file_data: &[u8], key: &[u8; 32], nonce: &[u8; 12]) -> Vec
     };
     cipher.encrypt(nonce.into(), payload).expect("Encryption failed")
 }
+
+// Hacer funciones decrypt
