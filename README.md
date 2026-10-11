@@ -5,14 +5,7 @@ Rust bin to encrypt and decrypt files based on their types (in progress).
 - Encrypts files in a directory and its subdirectories.
 - Renames encrypted files with a `.encrypted` extension.
 - Decrypts files and renames them with a `.decrypted` extension.
-
-## Usage
-To compile the project, run:
-
-## Features
-- Encrypts files in a directory and its subdirectories.
-- Renames encrypted files with a `.encrypted` extension.
-- Decrypts files and renames them with a `.decrypted` extension.
+- Lists files and directories.
 
 ## Usage
 To compile the project, run:
@@ -36,11 +29,26 @@ To decrypt files:
 - `/path/to/directory`: The directory containing files to be decrypted.
 - `[key]`: Optional hexadecimal key. If not provided, the key must match the encryption key used.
 
+### List Files and Directories
+To list files and directories:
+```bash
+./target/release/encrypt-rust /path/to/directory list
+```
+- `/path/to/directory`: The directory to be listed.
+
 ### Next Steps
-1. **Add Support for Different Encryption Algorithms**: Implement decryption for different encryption algorithms (e.g., Chacha20Poly1305).
-2. **User Interface**: Create a simple command-line interface for easier use.
-3. **Error Handling**: Improve error handling to provide more informative messages.
-4. **Logging**: Add logging for better debugging and monitoring.
+
+1. **Add Support for Different Encryption Algorithms**:
+   - Implement decryption for different encryption algorithms (e.g., Chacha20Poly1305).
+
+2. **User Interface**:
+   - Create a simple command-line interface for easier use.
+
+3. **Error Handling**:
+   - Improve error handling to provide more informative messages.
+
+4. **Logging**:
+   - Add logging for better debugging and monitoring.
 
 ## Dependencies
 - `aes`: For AES encryption.
