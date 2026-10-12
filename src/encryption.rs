@@ -40,3 +40,11 @@ pub fn encrypt_chacha(file_data: &[u8], key: &[u8; 32], nonce: &[u8; 12]) -> Vec
 }
 
 // Hacer funciones decrypt
+pub fn decrypt_chacha(file_data: &[u8], key: &[u8; 32], nonce: &[u8; 12]) -> Vec<u8> {
+    let cipher = ChaCha20Poly1305::new(Key::from_slice(key));
+    let payload = Payload {
+        msg: file_data,
+        aad: b"optional_data",
+    };
+    cipher.decrypt(nonce.into(), payload).expect("Decryption failed")
+}
