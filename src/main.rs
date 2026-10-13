@@ -127,6 +127,7 @@ fn main() {
             println!("✅ Cifrado completado.");
             // imprimir key y nonce hasta saber que hacer con ello
             // limpar código antes de seguir y ponerlo en ingles
+            // prueba de cambio en git
         }
         "descifrar" => {
             println!("🔓 Desencriptando datos desde {path_request} 🔓\n");
