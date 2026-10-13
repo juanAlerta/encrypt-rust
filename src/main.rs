@@ -125,6 +125,8 @@ fn main() {
             encrypt_files(&info, key_bytes, nonce_bytes);
             
             println!("✅ Cifrado completado.");
+            // imprimir key y nonce hasta saber que hacer con ello
+            // limpar código antes de seguir y ponerlo en ingles
         }
         "descifrar" => {
             println!("🔓 Desencriptando datos desde {path_request} 🔓\n");
