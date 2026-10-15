@@ -37,18 +37,14 @@ To list files and directories:
 - `/path/to/directory`: The directory to be listed.
 
 ### Next Steps
+1. Configurar método de envío de clave y nonce. 
+    1.1 Pensar usar una sola clave general porque una por fichero es poco realista?
+    1.2 Servidor privado. Complicado envío seguro? 
 
-1. **Add Support for Different Encryption Algorithms**:
-   - Implement decryption for different encryption algorithms (e.g., Chacha20Poly1305).
+2. Recibir claves para descifrado
+    2.1 Probablemente pasando un fichero como argumento en CLI.
+    
 
-2. **User Interface**:
-   - Create a simple command-line interface for easier use.
-
-3. **Error Handling**:
-   - Improve error handling to provide more informative messages.
-
-4. **Logging**:
-   - Add logging for better debugging and monitoring.
 
 ## Dependencies
 - `aes`: For AES encryption.
